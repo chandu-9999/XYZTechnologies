@@ -1,0 +1,29 @@
+- hosts: localhost
+ become: true
+ tasks:
+   - name: Build an image and push it to private repo
+     community.docker.docker_image:
+       build:
+         path: /var/lib/jenkins/workspace/p2-task4/
+         dockerfile: Dockerfile
+       name: "chandu-9999/xyz-technologies"
+       push: true
+       source: build
+     register: out
+   - debug:
+       var: out
+   - name: Start a container
+     community.docker.docker_container:
+       name: xyz-application
+       image: "chandu-9999/xyz-technologies"
+       state: started
+       ports:
+         - 8081:8080
+     register: out
+   - debug:
+       var: out
+   - name: Create a Deployment by reading the definition from a local file
+     command: sudo kubectl apply -f /var/lib/jenkins/workspace/p2-task4/deployment.yml
+     register: out
+   - debug:
+       var: out
