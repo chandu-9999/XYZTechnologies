@@ -13,7 +13,7 @@ spec:
        name: xyz-application
    spec:
      containers:
-       - image: chandu-9999/xyz-technologies
+       - image: chandu9999/xyz-technologies
          name: app
          ports:
          - name: tcpport

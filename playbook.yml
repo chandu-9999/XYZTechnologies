@@ -6,7 +6,7 @@
        build:
          path: /var/lib/jenkins/workspace/p2-task4/
          dockerfile: Dockerfile
-       name: "chandu-9999/xyz-technologies"
+       name: "chandu9999/xyz-technologies"
        push: true
        source: build
      register: out
@@ -15,7 +15,7 @@
    - name: Start a container
      community.docker.docker_container:
        name: xyz-application
-       image: "chandu-9999/xyz-technologies"
+       image: "chandu9999/xyz-technologies"
        state: started
        ports:
          - 8081:8080
@@ -23,7 +23,7 @@
    - debug:
        var: out
    - name: Create a Deployment by reading the definition from a local file
-     command: sudo kubectl apply -f /var/lib/jenkins/workspace/p2-task4/deployment.yml
+     command: sudo kubectl apply -f /var/lib/jenkins/workspace/p2-task4/XYZTechnologies/deployment.yml
      register: out
    - debug:
        var: out
