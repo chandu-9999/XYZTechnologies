@@ -4,7 +4,7 @@
    - name: Build an image and push it to private repo
      community.docker.docker_image:
        build:
-         path: /var/lib/jenkins/workspace/p2-task4/
+         path: /var/lib/jenkins/workspace/task-3/
          dockerfile: Dockerfile
        name: "chandu9999/xyz-technologies"
        push: true
@@ -23,7 +23,7 @@
    - debug:
        var: out
    - name: Create a Deployment by reading the definition from a local file
-     command: sudo kubectl apply -f /var/lib/jenkins/workspace/p2-task4/XYZTechnologies/deployment.yml
+     command: sudo kubectl apply -f /var/lib/jenkins/workspace/task-3chan/XYZTechnologies/deployment.yml
      register: out
    - debug:
        var: out
