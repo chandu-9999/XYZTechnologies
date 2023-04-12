@@ -4,7 +4,7 @@
     - name: Build an image and push it to private repo
       community.docker.docker_image:
         build:
-          path: /var/lib/jenkins/workspace/task-3/
+          path: /var/lib/jenkins/workspace/task-3/XYZTechnologies
           dockerfile: Dockerfile
         name: "chandu9999/xyz-technologies"
         push: true
